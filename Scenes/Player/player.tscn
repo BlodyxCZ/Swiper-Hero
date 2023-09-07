@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://g2he4sjuh8ao"]
+
+[ext_resource type="Texture2D" uid="uid://bou050ksipq81" path="res://Assets/Sprites/Cursor.png" id="1_h71bs"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_xdppd"]
+[ext_resource type="PackedScene" uid="uid://bilc6wbdo21ve" path="res://Scenes/Player/Sword/sword.tscn" id="2_44u7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pa7fw"]
+radius = 36.0
+
+[node name="Player" type="Node2D" groups=["Player"]]
+script = ExtResource("1_xdppd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Cursor" type="Sprite2D" parent="StaticBody2D"]
+z_index = 99
+z_as_relative = false
+texture_filter = 1
+position = Vector2(28, 28)
+scale = Vector2(4, 4)
+texture = ExtResource("1_h71bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(24, 20)
+shape = SubResource("CircleShape2D_pa7fw")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../CanvasLayer/Sword")
+bias = 0.9
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Sword" parent="CanvasLayer" instance=ExtResource("2_44u7t")]
+z_index = -2
+z_as_relative = false

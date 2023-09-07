@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bilc6wbdo21ve"]
+
+[ext_resource type="Texture2D" uid="uid://cyij61ax6ah41" path="res://Assets/Sprites/Sword.png" id="1_6ipvf"]
+[ext_resource type="Script" path="res://Assets/Nodes/Hitbox.gd" id="2_sqbms"]
+[ext_resource type="PackedScene" uid="uid://doqy8llqdn4ts" path="res://Scenes/Player/Trail/trail.tscn" id="3_8r7ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1rsa"]
+size = Vector2(22, 110)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yratn"]
+radius = 18.0
+height = 134.0
+
+[node name="Sword" type="RigidBody2D"]
+mass = 10.0
+gravity_scale = 10.0
+angular_damp = 100.0
+
+[node name="Sword" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+texture_filter = 1
+position = Vector2(0, 73)
+rotation = 2.35619
+scale = Vector2(4, 4)
+texture = ExtResource("1_6ipvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 103)
+shape = SubResource("RectangleShape2D_a1rsa")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_sqbms")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 95)
+shape = SubResource("CapsuleShape2D_yratn")
+
+[node name="Tip" type="Marker2D" parent="."]
+position = Vector2(0, 146)
+metadata/_edit_group_ = true
+
+[node name="Trail" parent="Tip" instance=ExtResource("3_8r7ej")]
+z_index = 1
+z_as_relative = false

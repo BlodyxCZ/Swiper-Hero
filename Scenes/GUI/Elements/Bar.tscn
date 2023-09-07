@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2n6a3cp3uu4j"]
+
+[ext_resource type="Texture2D" uid="uid://dg5lw41fowj72" path="res://Assets/Sprites/Bar1.png" id="1_1qjrv"]
+[ext_resource type="Texture2D" uid="uid://cmxgt8qscqjwk" path="res://Assets/Sprites/Buttons/ButtonEmptySmall.png" id="2_d58hm"]
+[ext_resource type="Script" path="res://Scenes/GUI/Elements/Bar.gd" id="2_y5vnv"]
+[ext_resource type="SystemFont" uid="uid://dwumw7hu6nk5s" path="res://Assets/Font/Base.tres" id="3_8o1p1"]
+[ext_resource type="Texture2D" uid="uid://dqkhymlayaf4c" path="res://Assets/Sprites/Buttons/Frame.png" id="5_3s17y"]
+
+[node name="Bar" type="TextureRect"]
+texture_filter = 1
+offset_right = 700.0
+offset_bottom = 108.0
+texture = ExtResource("1_1qjrv")
+stretch_mode = 5
+script = ExtResource("2_y5vnv")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_right = 697.0
+offset_bottom = 108.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.980392, 0, 0.0156863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8o1p1")
+theme_override_font_sizes/font_size = 32
+text = "BUY"
+icon = ExtResource("2_d58hm")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(54, 54)
+scale = Vector2(4, 4)
+texture = ExtResource("5_3s17y")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 12.0
+offset_right = 454.0
+offset_bottom = 48.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8o1p1")
+theme_override_font_sizes/font_size = 32
+text = "Placeholder"
+vertical_alignment = 2
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 12.0
+offset_right = 569.0
+offset_bottom = 48.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8o1p1")
+theme_override_font_sizes/font_size = 32
+text = "x99999"
+vertical_alignment = 2
+
+[node name="Desc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 48.0
+offset_right = 578.0
+offset_bottom = 96.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8o1p1")
+theme_override_font_sizes/font_size = 20
+text = "Placeholder placeholder placeholder placeholder placeholder"
+autowrap_mode = 3
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 68.0
+offset_right = 595.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_8o1p1")
+theme_override_font_sizes/font_size = 24
+text = "cost: 999999"
+vertical_alignment = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

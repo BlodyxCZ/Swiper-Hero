@@ -1,0 +1,5 @@
+[gd_resource type="SystemFont" format=3 uid="uid://dwumw7hu6nk5s"]
+
+[resource]
+font_names = PackedStringArray("Sitka Small")
+oversampling = 10.0

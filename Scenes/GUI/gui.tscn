@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs3xv3e5pcmpe"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/gui.gd" id="1_biwv2"]
+[ext_resource type="Texture2D" uid="uid://bpflepnylewkj" path="res://Assets/Sprites/Buttons/ButtonPlayer.png" id="1_d7vs4"]
+[ext_resource type="Texture2D" uid="uid://bfxtfrd6pkq3o" path="res://Assets/Sprites/UIBG1.png" id="1_lxtox"]
+[ext_resource type="Texture2D" uid="uid://cbx80nc6t8cxy" path="res://Assets/Sprites/Buttons/ButtonSword.png" id="2_kpcrp"]
+[ext_resource type="Texture2D" uid="uid://bbfnhq6xwq3ke" path="res://Assets/Sprites/Buttons/ButtonPets.png" id="4_ifsm6"]
+[ext_resource type="Texture2D" uid="uid://ceumsau3n1u2s" path="res://Assets/Sprites/Buttons/ButtonSpells.png" id="5_h3wdk"]
+[ext_resource type="PackedScene" uid="uid://d2n6a3cp3uu4j" path="res://Scenes/GUI/Elements/Bar.tscn" id="6_60r8v"]
+[ext_resource type="Texture2D" uid="uid://b08f8f4fl1s2e" path="res://Assets/Sprites/Buttons/MoneyCounter.png" id="7_xl4r4"]
+[ext_resource type="SystemFont" uid="uid://dwumw7hu6nk5s" path="res://Assets/Font/Base.tres" id="8_d4f83"]
+
+[node name="GUI" type="CanvasLayer" groups=["GUI"]]
+script = ExtResource("1_biwv2")
+
+[node name="Panel" type="TextureRect" parent="."]
+texture_filter = 1
+offset_top = 136.0
+offset_right = 192.0
+offset_bottom = 325.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_lxtox")
+stretch_mode = 3
+
+[node name="TabContainer" type="HBoxContainer" parent="."]
+offset_right = 192.0
+offset_bottom = 40.0
+scale = Vector2(4, 4)
+metadata/_edit_group_ = true
+
+[node name="Weapons" type="Button" parent="TabContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_kpcrp")
+flat = true
+icon_alignment = 1
+
+[node name="Player" type="Button" parent="TabContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("1_d7vs4")
+flat = true
+icon_alignment = 1
+
+[node name="Pets" type="Button" parent="TabContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("4_ifsm6")
+flat = true
+icon_alignment = 1
+
+[node name="Spells" type="Button" parent="TabContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("5_h3wdk")
+flat = true
+icon_alignment = 1
+
+[node name="WeaponList" type="VBoxContainer" parent="." groups=["List", "WeaponList"]]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 148.0
+offset_right = -858.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bar" parent="WeaponList" instance=ExtResource("6_60r8v")]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 4
+upgrade_name = "Sword"
+upgrade_cost = 100
+upgrade_desc = "Its a sword"
+
+[node name="PlayerList" type="VBoxContainer" parent="." groups=["List", "PlayerList"]]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 148.0
+offset_right = -858.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bar" parent="PlayerList" instance=ExtResource("6_60r8v")]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 4
+upgrade_name = "HP"
+upgrade_cost = 100
+upgrade_desc = "live longer"
+
+[node name="PetsList" type="VBoxContainer" parent="." groups=["List", "PetsList"]]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 148.0
+offset_right = -858.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bar" parent="PetsList" instance=ExtResource("6_60r8v")]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 4
+upgrade_name = "A cat"
+upgrade_cost = 1000
+upgrade_desc = "It's so cuteeee"
+
+[node name="SpellsList" type="VBoxContainer" parent="." groups=["List", "SpellsList"]]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 148.0
+offset_right = -858.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bar" parent="SpellsList" instance=ExtResource("6_60r8v")]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 4
+upgrade_name = "Fireball"
+upgrade_cost = 250
+upgrade_desc = "Kinda HOT!"
+
+[node name="Money" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 1332.0
+offset_top = 764.0
+offset_right = 1588.0
+offset_bottom = 892.0
+texture = ExtResource("7_xl4r4")
+
+[node name="Money" type="Label" parent="Money" groups=["MoneyLabel"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_d4f83")
+theme_override_font_sizes/font_size = 48
+text = "$999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TabContainer/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="TabContainer/Player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="TabContainer/Pets" to="." method="_on_pets_pressed"]
+[connection signal="pressed" from="TabContainer/Spells" to="." method="_on_spells_pressed"]
